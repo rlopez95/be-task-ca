@@ -2,13 +2,13 @@ from dataclasses import dataclass
 from typing import List
 import uuid
 
-from sqlalchemy import UUID, ForeignKey
+from sqlalchemy import ForeignKey
 from be_task_ca.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 
 @dataclass
-class CartItem(Base):
+class PostgresCartItem(Base):
     __tablename__ = "cart_items"
 
     user_id: Mapped[uuid.UUID] = mapped_column(
@@ -19,7 +19,7 @@ class CartItem(Base):
 
 
 @dataclass
-class User(Base):
+class PostgresUser(Base):
     __tablename__ = "users"
 
     id: Mapped[uuid.UUID] = mapped_column(
