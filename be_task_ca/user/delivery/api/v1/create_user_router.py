@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from be_task_ca.user.delivery.v1.schemas.create_user_request import CreateUserRequest
+from be_task_ca.user.delivery.api.schemas.create_user_request import CreateUserRequest
 from be_task_ca.user.infrastructure.in_memory_user_repository import (
     InMemoryUserRepository,
 )

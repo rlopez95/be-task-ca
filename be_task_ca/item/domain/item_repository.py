@@ -1,22 +1,22 @@
 from abc import ABC, abstractmethod
 from uuid import UUID
 
-from be_task_ca.user.domain.user import User
+from be_task_ca.item.domain.item import Item
 
 
-class UserRepository(ABC):
+class ItemRepository(ABC):
     @abstractmethod
-    def save_user(self, User) -> User:
+    def save_item(self, item: Item) -> Item:
         raise NotImplementedError()
 
     @abstractmethod
-    def find_user_by_email(self, email: str) -> User:
+    def get_all_items(self) -> list[Item]:
         raise NotImplementedError()
 
     @abstractmethod
-    def find_user_by_id(self, user_id: UUID) -> User:
+    def find_item_by_name(self, name: str) -> Item | None:
         raise NotImplementedError()
 
     @abstractmethod
-    def find_cart_items_for_user_id(self, user_id) -> list[User]:
+    def find_item_by_id(self, id: UUID) -> Item | None:
         raise NotImplementedError()

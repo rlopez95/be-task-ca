@@ -3,12 +3,12 @@ from typing import List
 import uuid
 
 from sqlalchemy import ForeignKey
-from be_task_ca.database import Base
+from be_task_ca.shared.logging import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 
 @dataclass
-class PostgresCartItem(Base):
+class SqlAlchemyCartItem(Base):
     __tablename__ = "cart_items"
 
     user_id: Mapped[uuid.UUID] = mapped_column(
@@ -19,7 +19,7 @@ class PostgresCartItem(Base):
 
 
 @dataclass
-class PostgresUser(Base):
+class SqlAlchemyUser(Base):
     __tablename__ = "users"
 
     id: Mapped[uuid.UUID] = mapped_column(
@@ -32,4 +32,4 @@ class PostgresUser(Base):
     last_name: Mapped[str]
     hashed_password: Mapped[str]
     shipping_address: Mapped[str] = mapped_column(default=None)
-    cart_items: Mapped[List["CartItem"]] = relationship()
+    cart_items: Mapped[list["SqlAlchemyCartItem"]] = relationship()

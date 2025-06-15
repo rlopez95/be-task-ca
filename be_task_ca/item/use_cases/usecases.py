@@ -4,7 +4,11 @@ from fastapi import HTTPException
 from .repository import find_item_by_name, get_all_items, save_item
 
 from .model import Item
-from .schema import AllItemsRepsonse, CreateItemRequest, CreateItemResponse
+from ..delivery.api.schemas import (
+    AllItemsRepsonse,
+    CreateItemRequest,
+    CreateItemResponse,
+)
 from sqlalchemy.orm import Session
 
 

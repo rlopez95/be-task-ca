@@ -18,3 +18,7 @@ class User:
     hashed_password: str
     shipping_address: str
     cart_items: list[CartItem]
+
+
+class UserNotFound(Exception):
+    pass

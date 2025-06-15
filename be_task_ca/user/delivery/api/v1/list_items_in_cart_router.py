@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from be_task_ca.user.infrastructure.in_memory_user_repository import (
     InMemoryUserRepository,
 )
+from be_task_ca.user.usecases import list_items_in_cart
 
 
 list_items_in_cart_router = APIRouter()
@@ -15,6 +16,7 @@ async def _get_in_memory_user_repository() -> InMemoryUserRepository:
 
 @list_items_in_cart_router.get("/{user_id}/cart")
 async def get_cart(
-    user_id: UUID, db: InMemoryUserRepository = Depends(_get_in_memory_user_repository)
+    user_id: UUID,
+    user_repository: InMemoryUserRepository = Depends(_get_in_memory_user_repository),
 ):
-    return list_items_in_cart(user_id, db)
+    return list_items_in_cart(user_id, user_repository)

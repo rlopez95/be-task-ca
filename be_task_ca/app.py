@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from be_task_ca.user.delivery.v1.api import user_router
-from .item.api import item_router
+from be_task_ca.item.delivery.api.v1 import item_router
+from be_task_ca.user.delivery.api.v1 import user_router
 
 
 app = FastAPI()
